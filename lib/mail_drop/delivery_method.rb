@@ -7,8 +7,9 @@ module MailDrop
     end
 
     def deliver!(mail)
-      FileUtils.mkdir_p(settings[:location])
+      mail.message_id = SecureRandom.uuid
 
+      FileUtils.mkdir_p(settings[:location])
       File.open(location_for(mail), "w") do |file|
         file.write(mail.encoded)
       end
