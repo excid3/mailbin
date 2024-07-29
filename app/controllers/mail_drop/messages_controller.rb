@@ -1,6 +1,6 @@
 module MailDrop
   class MessagesController < ApplicationController
-    around_action :set_locale, only: [:show]
+    around_action :set_locale, only: [ :show ]
 
     helper_method :attachment_url, :part_query, :locale_query
 
@@ -26,7 +26,7 @@ module MailDrop
         end
       else
         @part = find_preferred_part(request.format, Mime[:html], Mime[:text])
-        render layout: false, formats: [:html]
+        render layout: false, formats: [ :html ]
       end
     end
 
