@@ -1,6 +1,3 @@
-require "importmap-rails"
-require "turbo-rails"
-
 module MailDrop
   class Engine < ::Rails::Engine
     isolate_namespace MailDrop
