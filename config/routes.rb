@@ -1,4 +1,4 @@
-MailDrop::Engine.routes.draw do
+Mailbin::Engine.routes.draw do
   resources :messages do
     collection do
       resource :clear

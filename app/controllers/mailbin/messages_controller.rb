@@ -1,4 +1,4 @@
-module MailDrop
+module Mailbin
   class MessagesController < ApplicationController
     around_action :set_locale, only: [ :show ]
 
@@ -11,11 +11,11 @@ module MailDrop
     end
 
     def index
-      @emails = MailDrop.all
+      @emails = Mailbin.all
     end
 
     def show
-      @email = MailDrop.find(params[:id])
+      @email = Mailbin.find(params[:id])
       @attachments = attachments_for(@email).reject { |filename, attachment| attachment.inline? }
       @inline_attachments = attachments_for(@email).select { |filename, attachment| attachment.inline? }
 
@@ -34,7 +34,7 @@ module MailDrop
     end
 
     def destroy
-      MailDrop.destroy(params[:id])
+      Mailbin.destroy(params[:id])
       redirect_to root_path
     end
 

@@ -1,35 +1,35 @@
-# 📬 MailDrop
+# 📬 Mailbin
 Preview emails sent from ActionMailer in the browser.
 
-MailDrop writes emails to `tmp/mail_drop` for easy
+Mailbin writes emails to `tmp/mailbin` for easy access and testing.
 
 ## 📦 Installation
 
-Add MailDrop to your Gemfile:
+Add Mailbin to your Gemfile:
 
 ```ruby
-bundle add "mail_drop"
+bundle add "mailbin"
 ```
 
 Configure Rails to send emails to MailDrop:
 
 ```ruby
 # config/environments/development.rb
-config.action_mailer.delivery_method = :mail_drop
+config.action_mailer.delivery_method = :mailbin
 config.action_mailer.perform_deliveries = true
 ```
 
-Add the routes to view emails with MailDrop:
+Add the routes to view emails with MailBin:
 
 ```ruby
 Rails.application.routes.draw do
-  mount MailDrop::Engine => :mail_drop if Rails.env.development?
+  mount Mailbin::Engine => :mailbin if Rails.env.development?
 end
 ```
 
 ## Usage
 
-Open http://localhost:3000/mail_drop to view your emails in development.
+Open http://localhost:3000/mailbin to view your emails in development.
 
 ## Contributing
 

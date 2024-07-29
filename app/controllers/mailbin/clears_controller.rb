@@ -1,7 +1,7 @@
-module MailDrop
+module Mailbin
   class ClearsController < ApplicationController
     def destroy
-      MailDrop.destroy_all
+      Mailbin.destroy_all
       redirect_to root_path
     end
   end

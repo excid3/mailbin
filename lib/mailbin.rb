@@ -1,9 +1,9 @@
-require "mail_drop/version"
-require "mail_drop/engine"
+require "mailbin/version"
+require "mailbin/engine"
 
-module MailDrop
-  autoload :DeliveryMethod, "mail_drop/delivery_method"
-  autoload :InlinePreviewInterceptor, "mail_drop/inline_preview_interceptor"
+module Mailbin
+  autoload :DeliveryMethod, "mailbin/delivery_method"
+  autoload :InlinePreviewInterceptor, "mailbin/inline_preview_interceptor"
 
   class << self
     def all
@@ -32,7 +32,7 @@ module MailDrop
     end
 
     def settings
-      ActionMailer::Base.mail_drop_settings
+      ActionMailer::Base.mailbin_settings
     end
   end
 end

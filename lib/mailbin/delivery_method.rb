@@ -1,4 +1,4 @@
-module MailDrop
+module Mailbin
   class DeliveryMethod
     attr_accessor :settings
 

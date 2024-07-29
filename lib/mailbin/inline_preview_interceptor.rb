@@ -1,4 +1,4 @@
-module MailDrop
+module Mailbin
   class InlinePreviewInterceptor < ActionMailer::InlinePreviewInterceptor
     private
       # Convert to base64 unless it's already done

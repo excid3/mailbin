@@ -1,13 +1,13 @@
-require_relative "lib/mail_drop/version"
+require_relative "lib/mailbin/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "mail_drop"
-  spec.version     = MailDrop::VERSION
+  spec.name        = "mailbin"
+  spec.version     = Mailbin::VERSION
   spec.authors     = [ "Chris Oliver" ]
   spec.email       = [ "excid3@gmail.com" ]
   spec.homepage    = "https://github.com"
-  spec.summary     = "Summary of MailDrop."
-  spec.description = "Description of MailDrop."
+  spec.summary     = "Mailbin collects emails from Rails ActionMailer in development for testing."
+  spec.description = "Mailbin collects emails from Rails ActionMailer in development for testing."
   spec.license     = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mail_drop (0.1.0)
+    mailbin (0.1.0)
       importmap-rails
       rails (>= 7.1.0)
       turbo-rails
@@ -245,7 +245,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  mail_drop!
+  mailbin!
   puma
   rubocop-rails-omakase
   sprockets-rails
