@@ -1,75 +1,11 @@
-<!DOCTYPE html>
-<html><head>
-<title><%= @page_title %></title>
-<meta name="viewport" content="width=device-width" />
-<style type="text/css">
-  html, body, iframe {
-    height: 100%;
-  }
-
-  body {
-    margin: 0;
-  }
-
-  header {
-    width: 100%;
-    padding: 10px 0 0 0;
-    margin: 0;
-    background: white;
-    font: 12px "Lucida Grande", sans-serif;
-    border-bottom: 1px solid #dedede;
-    overflow: hidden;
-  }
-
-  dl {
-    margin: 0 0 10px 0;
-    padding: 0;
-  }
-
-  dt {
-    width: 80px;
-    padding: 1px;
-    float: left;
-    clear: left;
-    text-align: right;
-    color: #7f7f7f;
-  }
-
-  dd {
-    margin-left: 90px; /* 80px + 10px */
-    padding: 1px;
-  }
-
-  dd:empty:before {
-    content: "\00a0"; // &nbsp;
-  }
-
-  th {
-    font-weight: inherit;
-    color: #7f7f7f;
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  iframe {
-    border: 0;
-    width: 100%;
-  }
-
-  nav {
-    padding: 8px;
-  }
-</style>
-</head>
-
-<body>
 <nav>
   <%= link_to "Back to emails", messages_path %>
 </nav>
+
 <header>
   <dl>
     <dt>Actions</dt>
-    <dd><%= button_to "Delete", message_path(@email.message_id, format: :eml), method: :delete %> </dd>
+    <dd><%= button_to "Delete", message_path(@email.message_id), method: :delete, data: {turbo_confirm: "Are you sure?"} %> </dd>
 
     <% if Array(@email.from) != Array(@email.smtp_envelope_from) %>
       <dt>SMTP-From:</dt>
@@ -205,6 +141,3 @@
     }
   }
 </script>
-
-</body>
-</html>

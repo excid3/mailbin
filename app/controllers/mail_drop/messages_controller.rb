@@ -6,6 +6,10 @@ module MailDrop
 
     content_security_policy(false)
 
+    rescue_from Errno::ENOENT do
+      redirect_to root_path
+    end
+
     def index
       @emails = MailDrop.all
     end
@@ -26,7 +30,6 @@ module MailDrop
         end
       else
         @part = find_preferred_part(request.format, Mime[:html], Mime[:text])
-        render layout: false, formats: [ :html ]
       end
     end
 

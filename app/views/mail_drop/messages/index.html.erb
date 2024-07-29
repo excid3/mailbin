@@ -6,7 +6,7 @@
 <% if @emails.any? %>
   <ul>
     <% @emails.each do |email| %>
-      <li><%= link_to email.subject, message_path(email.message_id, format: :eml) %> - <%= l email.date, format: :long %></li>
+      <li><%= link_to email.subject, message_path(email.message_id) %> - <%= l email.date, format: :long %></li>
     <% end %>
   </ul>
 <% else %>
