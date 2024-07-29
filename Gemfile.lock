@@ -120,6 +120,8 @@ GEM
     nio4r (2.7.3)
     nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-linux)
+      racc (~> 1.4)
     parallel (1.25.1)
     parser (3.3.4.0)
       ast (~> 2.4.1)
@@ -213,6 +215,7 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     sqlite3 (2.0.3-arm64-darwin)
+    sqlite3 (2.0.3-x86_64-linux-gnu)
     stringio (3.1.1)
     strscan (3.1.0)
     thor (1.3.1)
@@ -229,6 +232,7 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   mail_drop!
