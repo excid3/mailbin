@@ -1,14 +1,26 @@
-<%= link_to "Back to app", main_app.root_path if main_app.respond_to?(:root_path) %>
-
-<h1>Sent Emails</h1>
-<%= button_to "Clear all", clear_path, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<div class="header">
+  <%= link_to "Back to app", main_app.root_path, class: "back-link" if main_app.respond_to?(:root_path) %>
+  <h1>Sent Emails</h1>
+  <%= button_to "Clear all", clear_path, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "clear-btn" %>
+</div>
 
 <% if @emails.any? %>
-  <ul>
-    <% @emails.each do |email| %>
-      <li><%= link_to email.subject, message_path(email.message_id) %> - <%= l email.date, format: :long %></li>
-    <% end %>
-  </ul>
+  <table class="email-list">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @emails.each do |email| %>
+        <tr>
+          <td><%= link_to email.subject, message_path(email.message_id), class: "email-link" %></td>
+          <td><%= l email.date, format: :long %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-  <p>You have not sent any emails.</p>
+  <p class="no-emails">You have not sent any emails.</p>
 <% end %>
