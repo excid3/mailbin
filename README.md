@@ -11,7 +11,7 @@ Add Mailbin to your Gemfile:
 bundle add "mailbin"
 ```
 
-Configure Rails to send emails to MailDrop:
+Configure Rails to send emails to MailBin:
 
 ```ruby
 # config/environments/development.rb
