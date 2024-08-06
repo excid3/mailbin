@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.version     = Mailbin::VERSION
   spec.authors     = [ "Chris Oliver" ]
   spec.email       = [ "excid3@gmail.com" ]
-  spec.homepage    = "https://github.com"
+  spec.homepage    = "https://github.com/excid3/mailbin"
   spec.summary     = "Mailbin collects emails from Rails ActionMailer in development for testing."
   spec.description = "Mailbin collects emails from Rails ActionMailer in development for testing."
   spec.license     = "MIT"
