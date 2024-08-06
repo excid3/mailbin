@@ -1,6 +1,6 @@
 ### Unreleased
 
-* Add Turbo via importmaps
+* Update gemspec to point to github
 
 ### 0.1.0
 
