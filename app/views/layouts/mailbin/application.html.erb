@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= stylesheet_link_tag "mailbin/application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags "application-mailbin" %>
+  <%= javascript_importmap_tags "application", importmap: Mailbin.importmap %>
 </head>
 <body>
   <%= yield %>

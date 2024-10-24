@@ -5,6 +5,8 @@ module Mailbin
   autoload :DeliveryMethod, "mailbin/delivery_method"
   autoload :InlinePreviewInterceptor, "mailbin/inline_preview_interceptor"
 
+  mattr_accessor :importmap, default: Importmap::Map.new
+
   class << self
     def all
       Dir.glob("*.eml", base: settings[:location]).map do |message_id|

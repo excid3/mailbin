@@ -16,13 +16,20 @@ module Mailbin
     end
 
     initializer "mailbin.assets" do |app|
-      app.config.assets.paths << root.join("app/javascript")
-      app.config.assets.precompile += %w[ mailbin_manifest ]
+      if app.config.respond_to?(:assets)
+        app.config.assets.paths << root.join("app/assets/stylesheets")
+        app.config.assets.paths << root.join("app/javascript")
+        app.config.assets.precompile += %w[ mailbin_manifest ]
+      end
     end
 
     initializer "mailbin.importmap", before: "importmap" do |app|
-      app.config.importmap.paths << Engine.root.join("config/importmap.rb")
-      app.config.importmap.cache_sweepers << Engine.root.join("app/javascript")
+      Mailbin.importmap.draw root.join("config/importmap.rb")
+      Mailbin.importmap.cache_sweeper watches: root.join("app/javascript")
+
+      ActiveSupport.on_load(:action_controller_base) do
+        before_action { Mailbin.importmap.cache_sweeper.execute_if_updated }
+      end
     end
   end
 end

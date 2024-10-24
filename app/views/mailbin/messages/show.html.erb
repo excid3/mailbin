@@ -1,12 +1,11 @@
 <nav>
   <%= link_to "Back to emails", messages_path %>
+  <h1><%= @email.subject %></h1>
+  <%= button_to "Delete", message_path(@email.message_id), method: :delete, class: "btn", data: {turbo_confirm: "Are you sure?"} %>
 </nav>
 
 <header>
   <dl>
-    <dt>Actions</dt>
-    <dd><%= button_to "Delete", message_path(@email.message_id), method: :delete, data: {turbo_confirm: "Are you sure?"} %> </dd>
-
     <% if Array(@email.from) != Array(@email.smtp_envelope_from) %>
       <dt>SMTP-From:</dt>
       <dd id="smtp_from"><%= @email.smtp_envelope_from %></dd>
@@ -88,7 +87,7 @@
       <dd>
         <details>
           <summary>Show all headers</summary>
-          <table>
+          <table class="headers">
           <% @email.header_fields.each do |field| %>
             <tr>
               <th><%= field.name %>:</th>

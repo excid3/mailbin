@@ -3,7 +3,9 @@ html, body, iframe {
 }
 
 body {
+  font: 12px "Lucida Grande", sans-serif;
   margin: 0;
+  padding: 1rem;
 }
 
 header {
@@ -39,11 +41,13 @@ dd:empty:before {
   content: "\00a0"; // &nbsp;
 }
 
-th {
-  font-weight: inherit;
-  color: #7f7f7f;
-  text-align: right;
-  white-space: nowrap;
+.headers {
+  th {
+    font-weight: inherit;
+    color: #7f7f7f;
+    text-align: right;
+    white-space: nowrap;
+  }
 }
 
 iframe {
@@ -52,6 +56,42 @@ iframe {
 }
 
 nav {
-  padding: 8px;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.email-list {
+  border-collapse: collapse;
+  width: 100%;
+
+  th, td {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #495057;
+  }
+}
+
+.btn {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  padding-bottom: 0.125rem;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+  padding-top: 0.125rem;
+  background-color: white;
+  color: rgb(31 41 55);
+  border-color: rgb(156 163 175);
+
+  &:hover {
+    background-color: rgb(243 244 246);
+  }
+}
