@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mailbin (0.1.0)
+    mailbin (0.1.1)
       importmap-rails
       rails (>= 7.1.0)
       turbo-rails
