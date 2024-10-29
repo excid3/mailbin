@@ -3,9 +3,11 @@ html, body, iframe {
 }
 
 body {
-  font: 12px "Lucida Grande", sans-serif;
+  font: 12px sans-serif;
   margin: 0;
   padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
