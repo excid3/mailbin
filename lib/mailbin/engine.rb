@@ -7,10 +7,15 @@ module Mailbin
 
     initializer "mailbin.add_delivery_method" do
       ActiveSupport.on_load :action_mailer do
+        # Allow ENV override for production use (persistent volumes on Fly.io, etc.)
+        # Falls back to tmp/mailbin for development
+        default_location = Rails.root.join("tmp", "mailbin")
+        location = ENV["MAILBIN_LOCATION"].presence || default_location
+
         ActionMailer::Base.add_delivery_method(
           :mailbin,
           Mailbin::DeliveryMethod,
-          location: Rails.root.join("tmp", "mailbin")
+          location: location
         )
       end
     end

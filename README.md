@@ -31,6 +31,27 @@ end
 
 Open http://localhost:3000/mailbin to view your emails in development.
 
+### Custom Storage Location
+
+By default, emails are stored in `tmp/mailbin`. To override, set the `MAILBIN_LOCATION` environment variable.
+
+The directory will be created automatically if it doesn't exist.
+
+### Authentication (Optional)
+
+You may protect mailbin with HTTP Basic Authentication:
+
+```ruby
+# config/initializers/mailbin.rb
+Mailbin.configure do |config|
+  config.authentication_username = ENV['MAILBIN_USERNAME']
+  config.authentication_password = ENV['MAILBIN_PASSWORD']
+  config.authentication_realm = "Email Viewer"  # Optional, defaults to "Mailbin"
+end
+```
+
+Authentication is automatically enabled when both username and password are configured. Leave them blank in development to skip authentication.
+
 ## Contributing
 
 If you have an issue you'd like to submit, please do so using the issue tracker in GitHub. In order for us to help you in the best way possible, please be as detailed as you can.

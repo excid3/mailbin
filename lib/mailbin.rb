@@ -7,7 +7,32 @@ module Mailbin
 
   mattr_accessor :importmap, default: Importmap::Map.new
 
+  # Authentication configuration
+  mattr_accessor :authentication_username
+  mattr_accessor :authentication_password
+  mattr_accessor :authentication_realm, default: "Mailbin"
+
   class << self
+    # Configure Mailbin (call this in an initializer)
+    def configure
+      yield self if block_given?
+    end
+
+    # Check if authentication is enabled
+    def authentication_enabled?
+      authentication_username.present? && authentication_password.present?
+    end
+
+    # Authenticate credentials
+    def authenticate(username, password)
+      # Return false if authentication not configured
+      return false unless authentication_enabled?
+
+      # Constant-time comparison to prevent timing attacks
+      ActiveSupport::SecurityUtils.secure_compare(username, authentication_username.to_s) &&
+        ActiveSupport::SecurityUtils.secure_compare(password, authentication_password.to_s)
+    end
+
     def all
       Dir.glob("*.eml", base: settings[:location]).map do |message_id|
         find(message_id)
