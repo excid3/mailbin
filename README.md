@@ -39,7 +39,7 @@ The directory will be created automatically if it doesn't exist.
 
 ### Authentication (Optional)
 
-You may protect mailbin with HTTP Basic Authentication:
+For use in staging environemnts, you may protect mailbin with HTTP Basic Authentication:
 
 ```ruby
 # config/initializers/mailbin.rb
