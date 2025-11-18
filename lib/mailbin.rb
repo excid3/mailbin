@@ -6,6 +6,7 @@ module Mailbin
   autoload :InlinePreviewInterceptor, "mailbin/inline_preview_interceptor"
 
   mattr_accessor :importmap, default: Importmap::Map.new
+  mattr_accessor :storage_location
 
   class << self
     def all

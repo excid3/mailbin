@@ -1,5 +1,7 @@
 ### Unreleased
 
+* Add `Mailbin.storage_location` config for customizing location where emails are stored
+
 ### 0.1.1
 
 * Use a separate Importmap from the Rails application
