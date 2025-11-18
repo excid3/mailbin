@@ -31,9 +31,32 @@ end
 
 Open http://localhost:3000/mailbin to view your emails in development.
 
+### Storage Loaction
+
+Mailbin stores emails in `tmp/mailbin` by default. To change this, you can set
+the `storage_location` config.
+
+```ruby
+# config/initializers/mailbin.rb
+Mailbin.storage_location = ENV["MAILBIN_STORAGE_LOCATION"] || Rails.root.join("tmp", "mailbin-#{Rails.env}")
+```
+
+### Authentication
+
+If you're using Mailbin outside of development, you can override
+`Mailbin::ApplicationController` to add authentication.
+
+```ruby
+class Mailbin::ApplicationController < ActionController::Base
+  # Add authentication here
+end
+```
+
 ## Contributing
 
-If you have an issue you'd like to submit, please do so using the issue tracker in GitHub. In order for us to help you in the best way possible, please be as detailed as you can.
+If you have an issue you'd like to submit, please do so using the issue tracker
+in GitHub. In order for us to help you in the best way possible, please be as
+detailed as you can.
 
 If you'd like to open a PR please make sure the following things pass:
 
@@ -44,4 +67,5 @@ bin/rubocop -A
 ```
 
 ## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the
+[MIT License](https://opensource.org/licenses/MIT).
