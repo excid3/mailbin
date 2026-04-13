@@ -1,5 +1,9 @@
 ### Unreleased
 
+### 1.1.1
+
+* Fix rgb colors by using commas instead of spaces #89
+
 ### 1.1.0
 
 * Add `Mailbin.storage_location` config for customizing location where emails are stored
