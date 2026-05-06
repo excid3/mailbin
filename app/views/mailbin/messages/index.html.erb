@@ -23,7 +23,7 @@
           <td><%= link_to email.subject, message_path(email.message_id) %></td>
           <td><%= email.to.join(", ") %></td>
           <td><%= email.from.join(", ") %></td>
-          <td><%= l email.date, format: :long %></td>
+          <td><%= tag.time email.date.to_fs(:rfc822), datetime: email.date %></td>
           <td><%= button_to "Delete", message_path(email.message_id), method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn" %></td>
         </tr>
       <% end %>
