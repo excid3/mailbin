@@ -38,7 +38,7 @@
     <% end %>
 
     <dt>Date:</dt>
-    <dd id="date"><%= @email.header['date'] || Time.current.rfc2822 %></dd>
+    <dd id="date"><%= tag.time @email.date.to_fs(:rfc822), datetime: @email.date %></dd>
 
     <dt>Subject:</dt>
     <dd><strong id="subject"><%= @email.subject %></strong></dd>
