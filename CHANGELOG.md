@@ -1,5 +1,11 @@
 ### Unreleased
 
+### 1.1.2
+
+* Add To and From columns to email index
+* Use rfc822 for date headers
+* Increase font size
+
 ### 1.1.1
 
 * Fix rgb colors by using commas instead of spaces #89
