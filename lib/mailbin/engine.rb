@@ -6,11 +6,13 @@ module Mailbin
     isolate_namespace Mailbin
 
     initializer "mailbin.add_delivery_method" do
+      Mailbin.storage_location ||= Rails.root.join("tmp", "mailbin")
+
       ActiveSupport.on_load :action_mailer do
         ActionMailer::Base.add_delivery_method(
           :mailbin,
           Mailbin::DeliveryMethod,
-          location: Rails.root.join("tmp", "mailbin")
+          location: Mailbin.storage_location
         )
       end
     end
