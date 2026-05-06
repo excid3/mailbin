@@ -9,6 +9,8 @@
     <thead>
       <tr>
         <th>Subject</th>
+        <th>To</th>
+        <th>From</th>
         <th>Sent At</th>
         <th>
           <%= button_to "Clear all", clear_path, method: :delete, class: "btn", data: {turbo_confirm: "Are you sure?"} %>
@@ -19,6 +21,8 @@
       <% @emails.each do |email| %>
         <tr>
           <td><%= link_to email.subject, message_path(email.message_id) %></td>
+          <td><%= email.to.join(", ") %></td>
+          <td><%= email.from.join(", ") %></td>
           <td><%= l email.date, format: :long %></td>
           <td><%= button_to "Delete", message_path(email.message_id), method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn" %></td>
         </tr>
