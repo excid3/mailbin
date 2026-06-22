@@ -2,7 +2,7 @@ module Mailbin
   class MessagesController < ApplicationController
     around_action :set_locale, only: [ :show ]
 
-    helper_method :attachment_url, :part_query, :locale_query
+    helper_method :attachment_url, :eml_url, :part_query, :locale_query
 
     content_security_policy(false)
 
@@ -68,6 +68,10 @@ module Mailbin
 
     def attachment_url(attachment)
       "data:application/octet-stream;charset=utf-8;base64,#{Base64.encode64(attachment.body.to_s)}"
+    end
+
+    def eml_url(email)
+      "data:message/rfc822;charset=utf-8;base64,#{Base64.encode64(email.to_s)}"
     end
 
     def part_query(mime_type)
