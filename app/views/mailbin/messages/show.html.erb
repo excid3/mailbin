@@ -100,7 +100,7 @@
     <% end %>
 
     <dt>EML File:</dt>
-    <dd><%= Mailbin.location_for(params[:id]) %></dd>
+    <dd><%= link_to Mailbin.location_for(params[:id]), eml_url(@email), download: File.basename(Mailbin.location_for(params[:id])) %></dd>
   </dl>
 </header>
 
