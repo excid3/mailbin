@@ -1,5 +1,9 @@
 ### Unreleased
 
+### 1.2.0
+
+* Add download button for EML files
+
 ### 1.1.2
 
 * Add To and From columns to email index
