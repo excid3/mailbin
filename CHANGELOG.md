@@ -1,5 +1,9 @@
 ### Unreleased
 
+### 1.2.1
+
+* Make the message view compatible with Herb in Rails 8.2 #109
+
 ### 1.2.0
 
 * Add download button for EML files
