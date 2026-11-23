@@ -1,5 +1,7 @@
 ### Unreleased
 
+### 1.2.2
+
 * Fix NameError for Mail when opening a message in a fresh process #124
 
 ### 1.2.1
