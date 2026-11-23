@@ -1,5 +1,6 @@
 require "mailbin/version"
 require "mailbin/engine"
+require "mail"
 
 module Mailbin
   autoload :DeliveryMethod, "mailbin/delivery_method"
