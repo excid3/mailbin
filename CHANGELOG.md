@@ -1,5 +1,7 @@
 ### Unreleased
 
+* Fix NameError for Mail when opening a message in a fresh process #124
+
 ### 1.2.1
 
 * Make the message view compatible with Herb in Rails 8.2 #109
